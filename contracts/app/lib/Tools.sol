@@ -1,8 +1,4 @@
 pragma solidity 0.4.21;
-
-
-// TODO: find more descriptive name
-
 library Tools {
 
     function isEmptyString(string memory str) pure public returns (bool) {
