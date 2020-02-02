@@ -13,15 +13,6 @@ const STAGING_NETWORK = 'bankexStaging';
 module.exports = async function(deployer, network, accounts) {
 	await deployer.deploy(SafeMath);
 	await deployer.link(SafeMath, [OpenCharityToken]);
-
-
-	// const openCharityTokenInstance = await OpenCharityToken.deployed();
-	// await deployer.deploy(Organization, openCharityTokenInstance.address, adminAddresses, 'Test Organization Name');
-	// const OrganizationInstance = await Organization.deployed();
-	// await openCharityTokenInstance.setMintAgent(OrganizationInstance.address, true);
-
-	// dev function to deploy new organizations
-	// const token = OpenCharityToken.at(openCharityTokenInstance.address);
 	let token;
 	if(network === STAGING_NETWORK) {
 		token = OpenCharityToken.at('0xa724a61f4b46d549fd67f5e5d4c441d950b85c43');
