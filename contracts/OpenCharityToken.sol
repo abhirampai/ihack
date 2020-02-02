@@ -10,11 +10,7 @@ contract OpenCharityToken is DetailedERC20, OpenCharityMintableToken, BurnableTo
 	function OpenCharityToken(string _name, string _symbol, uint8 _decimals)
 	DetailedERC20(_name, _symbol, _decimals)
 	public {
-
-
-		// set owner as mintAgent.
 		setMintAgent(msg.sender, true);
-		// create some tokens for the owner
 		mint(msg.sender, 1000000 * (10**18));
 
 	}
