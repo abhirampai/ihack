@@ -1,8 +1,5 @@
-
 const path = require('path');
 const fs = require('fs');
-
-// Helper functions
 const _root = path.resolve(__dirname);
 
 function hasProcessFlag(flag) {
