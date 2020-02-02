@@ -1,35 +1,14 @@
 pragma solidity 0.4.21;
 
 import "../node_modules/zeppelin-solidity/contracts/token/ERC20/MintableToken.sol";
-
-/**
- * @title Open Charity Mintable token
- * @dev Extends zeppelin Mintable token.
- * Add mintAgents to manage addresses that can mint new tokens
- */
-
 contract OpenCharityMintableToken is MintableToken {
-
-    /** List of agents that are allowed to create new tokens */
     mapping (address => bool) public mintAgents;
 
     event MintingAgentChanged(address addr, bool state);
-
-
-    /**
-     * Owner can allow another contract to mint new tokens.
-     */
     function setMintAgent(address addr, bool state) onlyOwner canMint public {
         mintAgents[addr] = state;
          MintingAgentChanged(addr, state);
     }
-
-    /**
-   * @dev Function to mint tokens
-   * @param _to The address that will receive the minted tokens.
-   * @param _amount The amount of tokens to mint.
-   * @return A boolean that indicates if the operation was successful.
-   */
     function mint(address _to, uint256 _amount) onlyMintAgent canMint public returns (bool) {
         totalSupply_ = totalSupply_.add(_amount);
         balances[_to] = balances[_to].add(_amount);
