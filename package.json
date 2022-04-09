@@ -103,7 +103,7 @@
 		"ip": "~1.1.5",
 		"jquery": "^3.2.1",
 		"lodash": "^4.17.4",
-		"moment": "^2.19.1",
+		"moment": "^2.29.2",
 		"ng2-sticky-kit": "5.0.0",
 		"ng2-toasty": "^4.0.3",
 		"ngrx-store-freeze": "~0.2.0",
